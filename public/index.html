@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="dbzmod">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width">
+    <title>DBZ</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/personagem-controller.js"></script>
+    <script src="js/controllers/criacao-controller.js"></script>
+    <script src="js/directives/minhas-diretivas.js"></script>
+    <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+</body>
+
+</html>
+
+
+<!--
+
+<body ng-controller="PersonagensController">
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="text-center">DBZ 0.0.1</h1>
+            </div>
+            <div ng-repeat="personagem in personagens" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{personagem.nome}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
+                </div>
+            </div>
+        </div>
+         fim 
+    </body>
+
+
+    <body ng-controller="FotosController">
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">DBZ 0.0.1</h1>
+        </div>
+
+        <personagem-painel ng-repeat="personagem in personagens" nome="{{personagem.nome}}">
+            <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
+        </personagem-painel>
+    </div>
+    
+</body>
+-->
