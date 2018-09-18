@@ -19,3 +19,45 @@
     opacity: 0;
     transform: scale(0.1);
 }
+
+.image-box {    
+    height: 300px;
+}
+
+.image-in-box {    
+    height: 300px;
+}
+
+.card-box {
+    margin-right: 0.4em;
+    margin-left: 0.4em;
+}
+
+#rodape a {
+    text-decoration: none;
+    font-weight: bold;
+}
+footer#rodape {
+	clear: both;
+    border-top: 1px solid rgb(255, 89, 0);
+    margin-top: 1em;
+    background-color: rgba(141, 141, 141, 0.712);
+}
+footer#rodape p {
+    font-weight: bold;
+    color: fff;
+    text-align: center;
+    font-size: 0.7em;
+    padding: 1em;
+    margin: 0;
+}
+#rodape a {
+    color: fff;
+}
+
+@media (min-width: 1200px) {
+    .card-box {
+        margin-right: 3em;
+        margin-left: 3em;
+    }
+}
