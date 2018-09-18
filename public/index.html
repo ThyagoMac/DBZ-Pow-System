@@ -14,6 +14,7 @@
     <script src="js/controllers/personagem-controller.js"></script>
     <script src="js/controllers/criacao-controller.js"></script>
     <script src="js/directives/minhas-diretivas.js"></script>
+    <script src="js/directives/validation-directive.js"></script>
     <script src="js/lib/angular-animate.min.js"></script>
     <script src="js/lib/angular-route.min.js"></script>
 </head>
@@ -21,62 +22,21 @@
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1 class="text-center">DBZ 0.0.2</h1>
+            <h3 class="text-center">DBZ 0.0.2</h1>
         </div>
-        
         <ng-view></ng-view>
     </div>
     <footer id="rodape">
-    
-
-    <!-- Footer Elements -->
-    <div class="container">
+        <div class="container">
             <p class="text-center">Telefone: (XX) XXXXX-XXXX
-                <br/> E-Mail: thyago.cormick@gmail.com.br
-                <br/> Copyright &copy; 2018 - by Thyago Mac
-                <br/>
+                <br /> E-Mail: thyago.cormick@gmail.com.br
+                <br /> Copyright &copy; 2018 - by Thyago Mac
+                <br />
                 <a href="#" target="_blank">Facebook</a> |
                 <a href="#" target="_blank">Twitter</a>
-            </p>    
-    </div>
-    <!-- Copyright -->
-
-  </footer>
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>
-
-
-<!--
-
-<body ng-controller="PersonagensController">
-        <div class="container">
-            <div class="jumbotron">
-                <h1 class="text-center">DBZ 0.0.1</h1>
-            </div>
-            <div ng-repeat="personagem in personagens" class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{personagem.nome}}</h3>
-                </div>
-                <div class="panel-body">
-                    <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
-                </div>
-            </div>
-        </div>
-         fim 
-    </body>
-
-
-    <body ng-controller="FotosController">
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="text-center">DBZ 0.0.1</h1>
-        </div>
-
-        <personagem-painel ng-repeat="personagem in personagens" nome="{{personagem.nome}}">
-            <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
-        </personagem-painel>
-    </div>
-    
-</body>
--->

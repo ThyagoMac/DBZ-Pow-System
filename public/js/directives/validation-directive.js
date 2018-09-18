@@ -1,5 +1,5 @@
-angular.module('minhasDiretivas', [])
-    .directive('personagemCard', function () {
+angular.module('minasDiretivas', [])
+    .directive('perCard', function () {
 
         var ddo = {}; //directive definition object
 
@@ -10,7 +10,8 @@ angular.module('minhasDiretivas', [])
             nome: '@'
         };
 
-        ddo.templateUrl = 'js/directives/personagem-painel.html';
-        //ddo.template = '<h3>Hello World!!</h3>';
+        //ddo.templateUrl = 'js/directives/personagem-painel.html';
+        ddo.template = '<h3>Hello World!!</h3>';
+        console.log("feito2");
         return ddo;
     });

@@ -13,3 +13,4 @@ angular.module('dbzmod').controller('CriacaoController', function($scope/*, $htt
         })*/
     }
 });
+

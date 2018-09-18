@@ -7,13 +7,16 @@
         <div class="form-group">
             <label for="name">Nome</label>
             <input ng-model="personagem.nome" id="name" name="nome" class="form-control" required ng-maxlength="20">
-            <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">Nome Obrigatório</span>
-            <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo 20 caracteres!!!</span>
+            <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">Nome
+                Obrigatório</span>
+            <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo
+                20 caracteres!!!</span>
         </div>
         <div class="form-group">
             <label for="race">Raça</label>
             <input ng-model="personagem.raca" id="race" name="raca" class="form-control" required>
-            <span ng-show="formulario.$submitted && formulario.raca.$error.required" class="form-control alert-danger">Raca Obrigatória</span>
+            <span ng-show="formulario.$submitted && formulario.raca.$error.required" class="form-control alert-danger">Raca
+                Obrigatória</span>
         </div>
         <div class="form-group">
             <label for="age">Idade</label>
@@ -49,7 +52,8 @@
         <div class="form-group">
             <label for="pow">Poder De Luta Inicial</label>
             <input ng-model="personagem.poderDeLuta" id="pow" name="poderdeluta" class="form-control" required>
-            <span ng-show="formulario.$submitted && formulario.poderdeluta.$error.required" class="form-control alert-danger">Poder de Luta Inicial Obrigatório</span>
+            <span ng-show="formulario.$submitted && formulario.poderdeluta.$error.required" class="form-control alert-danger">Poder
+                de Luta Inicial Obrigatório</span>
         </div>
         <div class="form-group">
             <label for="pic">Foto</label>
@@ -66,3 +70,5 @@
         <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
     </div>
 </form>
+
+

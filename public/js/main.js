@@ -1,4 +1,4 @@
-angular.module('dbzmod', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+angular.module('dbzmod', ['minhasDiretivas', 'minasDiretivas', 'ngAnimate', 'ngRoute'])
     .config(function($routeProvider, $locationProvider){
 
         $locationProvider.html5Mode(true);
