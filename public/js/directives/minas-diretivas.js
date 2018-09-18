@@ -3,7 +3,12 @@ angular.module('minasDiretivas', [])
 
         var ddo = {}; //directive definition object
 
-        ddo.restrict = "AE"; //Atributo e Element (AE)
+        ddo.restrict = "AE"; /*Atributo e Element (AE)
+                            ‘A’ – <span hello-world></span>
+                            ‘E’ – <hello-world></hello-world>
+                            ‘C’ – <span class=“hello-world”></span>
+                            ‘M’ – <!– directive: hello-world –>
+                            */
         ddo.transclude = true;
 
         ddo.scope = {
