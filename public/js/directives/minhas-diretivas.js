@@ -15,8 +15,8 @@ angular.module('minhasDiretivas', [])
             nome: '@'
         };
 
-        ddo.templateUrl = 'js/directives/personagem-painel.html';
+        ddo.templateUrl = 'partials/personagem-painel.html';
         //ddo.template = '<h3>Hello World!!</h3>';
-        console.log("feito1");
+        console.log("minhas-diretivas1");
         return ddo;
     });

@@ -7,9 +7,12 @@
         <div class="form-group">
             <label for="name">Nome</label>
             <input ng-model="personagem.nome" id="name" name="nome" class="form-control" required ng-maxlength="20">
-            <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">Nome
-                Obrigatório</span>
-            <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo
+            <ui-validation formname="formulario" inputid="nome" tipovalidacao="required">
+                Nome Obrigatório!!!
+            </ui-validation>
+
+            
+            <span ng-show="formulario.nome.$touched && formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo
                 20 caracteres!!!</span>
         </div>
         <div class="form-group">
@@ -51,14 +54,23 @@
         </div>
         <div class="form-group">
             <label for="pow">Poder De Luta Inicial</label>
-            <input ng-model="personagem.poderDeLuta" id="pow" name="poderdeluta" class="form-control" required>
-            <span ng-show="formulario.$submitted && formulario.poderdeluta.$error.required" class="form-control alert-danger">Poder
-                de Luta Inicial Obrigatório</span>
+            <input ng-model="personagem.poderDeLuta" id="pow" name="poderdeluta" class="form-control" ui-pow>
         </div>
         <div class="form-group">
             <label for="pic">Foto</label>
             <input ng-model="personagem.url" id="pic" name="url" class="form-control">
         </div>
+
+
+        <div class="form-group">
+            <label for="data">Dinheiros</label>
+            <input ng-model="personagem.dinheiro" name="grana" class="form-control" placeholder="0,00" ui-real/>
+        </div>
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input ng-model="personagem.data" name="data" class="form-control" placeholder="00/00/0000" ui-date/>
+        </div>
+
 
         <button type="submit" class="btn btn-primary">
             Salvar
