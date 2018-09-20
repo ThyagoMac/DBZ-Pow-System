@@ -182,36 +182,38 @@ angular.module('minhasDiretivas')
                     var pass = viewValue;
                     var testLetras = new RegExp(/[a-z]/i);
                     var testNum = new RegExp(/[0-9]/i);
-                    var testEspecial = new RegExp(/[^a-z0-9]/i);
+                    var testCaracEspecial = new RegExp(/[^a-z0-9]/i);
                     var algoErrado = true;
 
                     if (algoErrado){
                         var mensagem = "";
 
-                        if (!testEspecial.test(pass)) {
+                        if (!testCaracEspecial.test(pass)) {
                             mensagem = "Campo FALTA caractere especiais";
+                            algoErrado = false;
                         }
 
                         if (!testNum.test(pass)) {
                             mensagem = "Campo FALTA numeros";
+                            algoErrado = false;
                         }
 
                         if (!testLetras.test(pass)) {
                             mensagem = "Campo FALTA letras";
+                            algoErrado = false;
                         }
 
-                        if (pass.length <= 3){ // False value
+                        if (pass.length <= 3) { // False value
                             mensagem = "Campo muito curto";
+                            algoErrado = false;
                         }
 
                         var spanMsg = document.getElementById('passId');
                         spanMsg.innerHTML = mensagem;
-                        algoErrado = false;
                     }
-                    if (control.$isEmpty(viewValue)) //empt = correct value
-                    {
+
+                    if (control.$isEmpty(viewValue)){ //empt = correct value
                         algoErrado = true;
-                        return algoErrado;
                     }
                     return algoErrado; // wrong value
                 };
