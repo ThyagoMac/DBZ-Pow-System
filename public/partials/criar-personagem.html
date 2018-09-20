@@ -1,8 +1,60 @@
 <div class="page-header text-center">
     <h1>{{personagem.nome}}</h1>
 </div>
-
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <input ng-model="pass" 
+                name="pass" 
+                class="form-control" 
+                placeholder="Nascimento" 
+                ui-pass/>
+        <span class="form-control alert-danger" 
+            id="passId"
+            tipo="length-3"
+            ng-show="formulario.pass.$error.password"> Mensagem </span>
+    </div>
+
+        
+    <hr>
+    <div class="form-group">
+        <label for="data">Dinheiros</label>
+        <input ng-model="personagem.dinheiro" 
+                name="grana" 
+                class="form-control" 
+                placeholder="0,00" 
+                ui-real/>
+    </div>
+    <div class="form-group">
+        <label for="data">Data</label>
+        <input ng-model="personagem.data" 
+                name="data" 
+                class="form-control" 
+                placeholder="00/00/0000" 
+                ui-date/>
+    </div>
+    <div class="form-group">
+        <label for="data">CPF</label>
+        <input ng-model="personagem.cpf" 
+                name="cpf" 
+                class="form-control" 
+                placeholder="000.000.000-00" 
+                ui-cpf/>
+    </div>
+    <div class="form-group">
+        <label for="data">CPFd</label>
+        <input ng-model="personagem.cpfd" 
+                name="cpfd" 
+                class="form-controld" 
+                placeholder="000.000.000-00" 
+                ui-cpfd/>
+    </div>
+    <hr>
+
+
+
+
     <div class="col-md-6">
         <div class="form-group">
             <label for="name">Nome</label>
@@ -10,7 +62,6 @@
             <ui-validation formname="formulario" inputid="nome" tipovalidacao="required">
                 Nome Obrigatório!!!
             </ui-validation>
-
             
             <span ng-show="formulario.nome.$touched && formulario.nome.$error.maxlength" class="form-control alert-danger">Máximo
                 20 caracteres!!!</span>
@@ -60,17 +111,6 @@
             <label for="pic">Foto</label>
             <input ng-model="personagem.url" id="pic" name="url" class="form-control">
         </div>
-
-
-        <div class="form-group">
-            <label for="data">Dinheiros</label>
-            <input ng-model="personagem.dinheiro" name="grana" class="form-control" placeholder="0,00" ui-real/>
-        </div>
-        <div class="form-group">
-            <label for="data">Data</label>
-            <input ng-model="personagem.data" name="data" class="form-control" placeholder="00/00/0000" ui-date/>
-        </div>
-
 
         <button type="submit" class="btn btn-primary">
             Salvar
