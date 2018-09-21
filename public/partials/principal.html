@@ -1,3 +1,146 @@
+<div class="row"> <br>
+    <div personagem-card class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box " ng-repeat="personagem in personagens | filter: pesquisa"
+        nome="{{personagem.nome}}">
+        
+        <div class="card">
+            <div class="image-box">
+                <img class="card-img-top img-responsive center-block img-fluid image-in-box" src="{{personagem.url}}" alt="{{personagem.nome}}">
+            </div>
+            <div class="card-body row">
+                    <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}</h5>
+                    
+                    <div class="progress">
+                        <div ui-Hp class="progress-bar progress-bar-success" id="{{personagem.nome}}hp" myHp="{{myHp}}" style="width:{{myHp}}%">
+                        </div>
+                    </div>
+                        
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" id="{{personagem.nome}}ki" style="width:{{myKi}}%">  
+                        </div>
+                    </div>
+                    <hr>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <label for="{{personagem.nome}}pdl">Poder De Luta:</label>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdl" type="text" value="{{personagem.poderDeLuta}}">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}-hp">HP:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}-hp" type="text" value="{{personagem.hp}}" ng-model="myHp">
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}-ki">KI:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}-ki" type="text" value="{{personagem.ki}}" ng-model="myKi">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}atauqe">Ataque:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}atauqe" type="text"
+                                    value="#ToDo">
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}defesa">Defesa:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}defesa" type="text"
+                                    value="#ToDo">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}danof">Dano Fisico:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}danof" type="text"
+                                    value="#ToDo">
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                <label for="{{personagem.nome}}danom">Dano Magico:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}danom" type="text"
+                                    value="#ToDo">
+                            </div>
+                        </div>
+                    </li>
+
+                    <br>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label for="{{personagem.nome}}aura">Aura de Ki:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control form-control-sm" id="{{personagem.nome}}aura">
+                                        <option selected>Off</option>
+                                        <option value="1">On</option>
+                                        <option value="2">Kaioken!!!</option>
+                                    </select>
+                                </div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label for="{{personagem.nome}}trans">Transformação:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <select class="form-control form-control-sm" id="{{personagem.nome}}trans">
+                                    <option selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                    </li>
+
+                    <br>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label for="{{personagem.nome}}pdla">Poder de Luta Atual:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdla" type="text"
+                                    value="#ToDo">
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <label for="{{personagem.nome}}pdli">Poder de Luta Inimigo:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdli" type="text"
+                                    value="#ToDo">
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <form>
@@ -10,151 +153,4 @@
         </form>
     </div>
 </div>
-
-<div class="row"> <br>
-    <div personagem-card class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box " ng-repeat="personagem in personagens | filter: pesquisa"
-        nome="{{personagem.nome}}">
-        
-            <div class="card">
-                <div class="image-box">
-                    <img class="card-img-top img-responsive center-block img-fluid image-in-box" src="{{personagem.url}}" alt="{{personagem.nome}}">
-                </div>
-                <div class="card-body row">
-                        <h5 class="card-title">{{personagem.nome}}</h5>
-                        
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                            aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                            </div>
-                        </div>
-                            
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-                            aria-valuemin="0" aria-valuemax="100" style="width:60%">  
-                            </div>
-                        </div>
-                        <hr>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <label for="{{personagem.nome}}pdl">Poder De Luta:</label>
-                                </div>
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}pdl" type="text" value="{{personagem.poderDeLuta}}">
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}-hp">HP:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}-hp" type="text" value="#ToDo">
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}-ki">KI:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}-ki" type="text" value="#ToDo">
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}atauqe">Ataque:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}atauqe" type="text"
-                                        value="#ToDo">
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}defesa">Defesa:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}defesa" type="text"
-                                        value="#ToDo">
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}danof">Dano Fisico:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}danof" type="text"
-                                        value="#ToDo">
-                                </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.nome}}danom">Dano Magico:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}danom" type="text"
-                                        value="#ToDo">
-                                </div>
-                            </div>
-                        </li>
-
-                        <br>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.nome}}aura">Aura de Ki:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <select class="form-control form-control-sm" id="{{personagem.nome}}aura">
-                                            <option selected>Off</option>
-                                            <option value="1">On</option>
-                                            <option value="2">Kaioken!!!</option>
-                                        </select>
-                                    </div>
-
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.nome}}trans">Transformação:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control form-control-sm" id="{{personagem.nome}}trans">
-                                        <option selected>0</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </div>
-                                
-                            </div>
-                        </li>
-
-                        <br>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.nome}}pdla">Poder de Luta Atual:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}pdla" type="text"
-                                        value="#ToDo">
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.nome}}pdli">Poder de Luta Inimigo:</label>
-                                </div>
-                                <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" id="{{personagem.nome}}pdli" type="text"
-                                        value="#ToDo">
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        
-    </div>
-</div>
-
 <!--//ng-controller="PersonagensController"

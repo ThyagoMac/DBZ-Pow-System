@@ -13,7 +13,6 @@ angular.module('minhasDiretivas')
                 tipovalidacao: '@'
             }
         }
-
     });
 
 angular.module('minhasDiretivas')
@@ -22,7 +21,7 @@ angular.module('minhasDiretivas')
 
         return {
             restric: "A",
-            require: "ngModel",
+            require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
                 var _formatDate = function (date) {
                     date = date.replace(/[^0-9]+/g, ""); //limpa tdo que nao for numero como (/\D/g,"")
@@ -48,6 +47,7 @@ angular.module('minhasDiretivas')
         console.log("real-directive4");
 
         return {
+            restric: 'A',
             require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
 
@@ -78,15 +78,13 @@ angular.module('minhasDiretivas')
         };
     });
 
-
-
 angular.module('minhasDiretivas')
     .directive('uiCpf', function () {
         console.log("CPF-directive5");
 
         return {
             restric: "A",
-            require: "ngModel",
+            require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
                 var _formatCpf = function (cpf) {
                     cpf = cpf.replace(/[^0-9]+/g, ""); //limpa tdo que nao for numero como (/\D/g,"")
@@ -139,37 +137,66 @@ angular.module('minhasDiretivas')
        };
    });
 */
+
 angular.module('minhasDiretivas')
-    .directive('adult', function () {
-        console.log("directive-age888888");
+    .directive('uiPass', function () {
+        console.log("directive-pass7");
+
         return {
+            scope: {
+            tipo: '@'
+            },
             require: 'ngModel',
-            link: function (scope, element, attributes, control) {
-                control.$validators.adult = function (modelValue, viewValue) {
-                    
-                    if (control.$isEmpty(modelValue)) // if empty, correct value
+            link: function (scope, element, attrs, control) {
+                control.$validators.password = function (viewValue) {
+                    if (control.$isEmpty(viewValue)) //empt = correct value
                     {
                         return true;
                     }
                     
-                    var agee = Number(viewValue);
+                    var mensagem = "";
+                    var pass = viewValue;
+                    var testLetras = new RegExp(/[a-z]/i);
+                    var testNum = new RegExp(/[0-9]/i);
+                    var testEspecial = new RegExp(/[^a-z0-9]/i);
                     
-                    if (agee >= 18 && agee <= 100) // correct value
-                    {
-                        return true;
+                    if (pass.length <= 3) { // False value
+                        var mensagem = "Campo muito curto";
+                        var span = document.getElementById('passId');
+                        span.innerHTML = mensagem;
+                        return false;
                     }
-                    return false; // wrong value
+                    if (!testLetras.test(pass)) {
+                        var mensagem = "Campo FALTA letras";
+                        var span = document.getElementById('passId');
+                        span.innerHTML = mensagem;
+                        return false;
+                    }
+
+                    if (!testNum.test(pass)) {
+                        var mensagem = "Campo FALTA numeros";
+                        var span = document.getElementById('passId');
+                        span.innerHTML = mensagem;
+                        return false;
+                    }
+
+                    if (!testEspecial.test(pass)) {
+                        var mensagem = "Campo FALTA caractere especiais";
+                        var span = document.getElementById('passId');
+                        span.innerHTML = mensagem;
+                        return false;
+                    }
+                    
+                    return true; // wrong value
                 };
             }
         };
     });
 
-
-
-
-    angular.module('minhasDiretivas')
+/*
+angular.module('minhasDiretivas')
     .directive('uiPass', function () {
-        console.log("directive-pass7");
+        console.log("directive-pass8");
         
         return {
             scope: {
@@ -183,40 +210,36 @@ angular.module('minhasDiretivas')
                     var testLetras = new RegExp(/[a-z]/i);
                     var testNum = new RegExp(/[0-9]/i);
                     var testCaracEspecial = new RegExp(/[^a-z0-9]/i);
-                    var algoErrado = true;
+                    var algoErrado = true; //control var
+                    var mensagem = "";
 
-                    if (algoErrado){
-                        var mensagem = "";
-
-                        if (!testCaracEspecial.test(pass)) {
-                            mensagem = "Campo FALTA caractere especiais";
-                            algoErrado = false;
-                        }
-
-                        if (!testNum.test(pass)) {
-                            mensagem = "Campo FALTA numeros";
-                            algoErrado = false;
-                        }
-
-                        if (!testLetras.test(pass)) {
-                            mensagem = "Campo FALTA letras";
-                            algoErrado = false;
-                        }
-
-                        if (pass.length <= 3) { // False value
-                            mensagem = "Campo muito curto";
-                            algoErrado = false;
-                        }
-
-                        var spanMsg = document.getElementById('passId');
-                        spanMsg.innerHTML = mensagem;
+                    if (!testCaracEspecial.test(pass)) {
+                        mensagem = "Campo FALTA caractere especiais";
+                        algoErrado = false;
+                    }
+                    if (!testNum.test(pass)) {
+                        mensagem = "Campo FALTA numeros";
+                        algoErrado = false;
+                    }
+                    if (!testLetras.test(pass)) {
+                        mensagem = "Campo FALTA letras";
+                        algoErrado = false;
+                    }
+                    if (pass.length <= 3) {
+                        mensagem = "Campo muito curto";
+                        algoErrado = false;
                     }
 
-                    if (control.$isEmpty(viewValue)){ //empt = correct value
+                    var spanMsg = document.getElementById('passId');
+                    spanMsg.innerHTML = mensagem;
+                
+                    if (control.$isEmpty(viewValue)){ //empt input = true
                         algoErrado = true;
                     }
-                    return algoErrado; // wrong value
+                    return algoErrado; // reurn control var
                 };
             }
         };
     });
+*/
+
