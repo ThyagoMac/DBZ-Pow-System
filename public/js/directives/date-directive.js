@@ -4,7 +4,7 @@ angular.module('minhasDiretivas')
 
         return {
             restric: "A",
-            require: "ngModel",
+            require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
                 var _formatDate = function (date) {
                     date = date.replace(/[^0-9]+/g, ""); //limpa tdo que nao for numero como (/\D/g,"")

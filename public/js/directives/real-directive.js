@@ -3,6 +3,7 @@ angular.module('minhasDiretivas')
         console.log("real-directive4");
 
         return {
+            restric: 'A',
             require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
 

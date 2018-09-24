@@ -5,7 +5,8 @@ angular.module('dbzmod', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
 
         $routeProvider.when('/personagens', {
             templateUrl: 'partials/principal.html',
-            controller: 'PersonagensController'
+            controller: 'PersonagensController',
+            controllerAs: 'vm'
         });
 
         $routeProvider.when('/personagens/new', {

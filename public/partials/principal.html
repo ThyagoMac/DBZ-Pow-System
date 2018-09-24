@@ -1,5 +1,5 @@
 <div class="row"> <br>
-    <div personagem-card class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box " ng-repeat="personagem in personagens | filter: pesquisa"
+    <div class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box " ng-repeat="personagem in vm.personagens | filter: pesquisa"
         nome="{{personagem.nome}}">
         
         <div class="card">
@@ -10,12 +10,12 @@
                     <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}</h5>
                     
                     <div class="progress">
-                        <div ui-Hp class="progress-bar progress-bar-success" id="{{personagem.nome}}hp" myHp="{{myHp}}" style="width:{{myHp}}%">
+                        <div ui-Hp class="progress-bar progress-bar-success" id="{{personagem.id}}hpbar" ng-model="personagem.myHp" style="width:{{personagem.myHp}}%">
                         </div>
                     </div>
                         
                     <div class="progress">
-                        <div class="progress-bar progress-bar-info" id="{{personagem.nome}}ki" style="width:{{myKi}}%">  
+                        <div class="progress-bar progress-bar-info" id="{{personagem.id}}kibar" style="width:{{personagem.ki}}%">
                         </div>
                     </div>
                     <hr>
@@ -23,10 +23,10 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-12">
-                                <label for="{{personagem.nome}}pdl">Poder De Luta:</label>
+                                <label for="{{personagem.id}}pdl">Poder De Luta:</label>
                             </div>
                             <div class="col-md-8 col-sm-8 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdl" type="text" value="{{personagem.poderDeLuta}}">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}pdl" type="text" value="{{personagem.poderDeLuta}}">
                             </div>
                         </div>
                     </li>
@@ -34,16 +34,16 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}-hp">HP:</label>
+                                <label for="{{personagem.id}}hp">HP:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}-hp" type="text" value="{{personagem.hp}}" ng-model="myHp">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}hp" type="text" value="{{personagem.hp}}" ng-model="personagem.hp" ng-change="vm.powChange(personagem)">
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}-ki">KI:</label>
+                                <label for="{{personagem.id}}ki">KI:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}-ki" type="text" value="{{personagem.ki}}" ng-model="myKi">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}ki" type="text" value="{{personagem.ki}}" ng-model="personagem.ki">
                             </div>
                         </div>
                     </li>
@@ -51,18 +51,18 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}atauqe">Ataque:</label>
+                                <label for="{{personagem.id}}atauqe">Ataque:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}atauqe" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}atauqe" type="text" disabled
+                                    value="{{personagem.ataque}}">
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}defesa">Defesa:</label>
+                                <label for="{{personagem.id}}defesa">Defesa:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}defesa" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}defesa" type="text" disabled
+                                    value="{{personagem.defesa}}">
                             </div>
                         </div>
                     </li>
@@ -70,18 +70,18 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}danof">Dano Fisico:</label>
+                                <label for="{{personagem.id}}danof">Dano Fisico:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}danof" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}danof" type="text" disabled
+                                    value="{{personagem.danoF}}d6+{{personagem.bonusF}}">
                             </div>
                             <div class="col-md-2 col-sm-2 col-xs-12">
-                                <label for="{{personagem.nome}}danom">Dano Magico:</label>
+                                <label for="{{personagem.id}}danom">Dano Magico:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}danom" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}danom" type="text" disabled
+                                    value="{{personagem.danoM}}d6+{{personagem.bonusM}}">
                             </div>
                         </div>
                     </li>
@@ -90,25 +90,25 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <label for="{{personagem.nome}}aura">Aura de Ki:</label>
+                                <label for="{{personagem.id}}aura">Aura de Ki:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control form-control-sm" id="{{personagem.nome}}aura">
-                                        <option selected>Off</option>
-                                        <option value="1">On</option>
-                                        <option value="2">Kaioken!!!</option>
-                                    </select>
-                                </div>
+                                <select ng-model="personagem.auraKi" ng-change="vm.powChange(personagem)" class="form-control form-control-sm" id="{{personagem.id}}aura">
+                                    <option selected value="off">Off</option>
+                                    <option value="on">On</option>
+                                    <option value="kaioken">Kaioken!!!</option>
+                                </select>
+                            </div>
 
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <label for="{{personagem.nome}}trans">Transformação:</label>
+                                <label for="{{personagem.id}}trans">Transformação:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select class="form-control form-control-sm" id="{{personagem.nome}}trans">
-                                    <option selected>0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                <select ng-model="personagem.transform" ng-change="vm.powChange(personagem)" class="form-control form-control-sm" id="{{personagem.id}}trans">
+                                    <option selected ng-value="0">0</option>
+                                    <option ng-value="1">1</option>
+                                    <option ng-value="2">2</option>
+                                    <option ng-value="3">3</option>
                                 </select>
                             </div>
                             
@@ -119,18 +119,18 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <label for="{{personagem.nome}}pdla">Poder de Luta Atual:</label>
+                                <label for="{{personagem.id}}pdla">Poder de Luta Atual:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdla" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}pdla" type="text"
+                                    ng-model="personagem.poderDeLutaAtual">
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <label for="{{personagem.nome}}pdli">Poder de Luta Inimigo:</label>
+                                <label for="{{personagem.id}}pdli">Poder de Luta Inimigo:</label>
                             </div>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <input class="form-control col-xs-10" id="{{personagem.nome}}pdli" type="text"
-                                    value="#ToDo">
+                                <input class="form-control col-xs-10" id="{{personagem.id}}pdli" ng-model="personagem.poderDeLutaInimigo" ng-change="vm.powChange(personagem)" type="text"
+                                    value="{{personagem.poderDeLutaInimigo}}">
                             </div>
                         </div>
                     </li>
@@ -148,7 +148,7 @@
                 <span class="input-group-btn">
                     <a href="personagens/new" class="btn btn-primary">Criar Personagem</a>
                 </span>
-                <input ng-model="pesquisa" class="form-control" placeholder="Pesquisar" ng-model-options="{ debounce: 100 }">
+                <input ng-model="pesquisa" class="form-control" placeholder="Pesquisar" >
             </div>
         </form>
     </div>
