@@ -12,7 +12,7 @@
 
                 </div>
                 <div class="card-body row">
-                        <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}
+                    <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}
                             <button type="button" 
                                 class="close" 
                                 aria-label="Close"
@@ -21,15 +21,13 @@
                             </button>
                         </h5>
                         
-        
-                        
                     <ul class="list-group list-group-flush">
 
                         <li class="list-group-item">
                             <div class="progress">
                                 <div ui-Hp class="progress-bar progress-bar-success" 
                                     id="{{personagem.id}}hpbar" 
-                                    ng-model="vm.personagem.myHp" 
+                                    ng-model="personagem.myHp" 
                                     style="width:{{personagem.myHp}}%">
     
                                 </div>
@@ -50,9 +48,9 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}hp" 
-                                        type="text" 
+                                        type="number" 
                                         value="{{personagem.hp}}" 
-                                        ng-model="vm.personagem.hp" 
+                                        ng-model="personagem.hp" 
                                         ng-change="vm.powChange(personagem)">
 
                                 </div>
@@ -62,9 +60,9 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}ki" 
-                                        type="text" 
+                                        type="number" 
                                         value="{{personagem.ki}}" 
-                                        ng-model="vm.personagem.ki">
+                                        ng-model="personagem.ki">
 
                                 </div>
                             </div>
@@ -129,32 +127,38 @@
                                     <label for="{{personagem.id}}aura">Aura de Ki:</label>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select ng-model="vm.personagem.auraKi" 
+                                    <select ng-model="personagem.auraKi" 
                                     ng-change="vm.powChange(personagem)" 
                                     class="form-control form-control-sm" 
                                     id="{{personagem.id}}aura">
 
                                         <option selected value="off">Off</option>
                                         <option value="on">On</option>
-                                        <option value="kaioken">Kaioken!!!</option>
+                                        <option value="kaioken">Kaioken!</option>
 
                                     </select>
+                                    <div ng-if="personagem.auraKi == 'kaioken'">
+                                        <input ng-model="personagem.kaioken" 
+                                            class="form-control" 
+                                            type="number" 
+                                            value="1"
+                                            ng-change="vm.powChange(personagem)">
+                                        
+                                    </div>
                                 </div>
 
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}trans">Transformação:</label>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select ng-model="vm.personagem.transform" 
+                                    <input ng-model="personagem.transform" 
+                                        type="number"
                                         ng-change="vm.powChange(personagem)" 
                                         class="form-control form-control-sm" 
                                         id="{{personagem.id}}trans">
 
-                                        <option selected ng-value="0">0</option>
-                                        <option ng-value="1">1</option>
-                                        <option ng-value="2">2</option>
-                                        <option ng-value="3">3</option>
-                                    </select>
+                                        
+                                    
                                 </div>
                                 
                             </div>
@@ -170,7 +174,7 @@
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}pdla" 
                                         type="text"
-                                        ng-model="vm.personagem.poderDeLutaAtual">
+                                        ng-model="personagem.poderDeLutaAtual">
 
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
@@ -179,7 +183,7 @@
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}pdli" 
-                                        ng-model="vm.personagem.poderDeLutaInimigo" 
+                                        ng-model="personagem.poderDeLutaInimigo" 
                                         ng-change="vm.powChange(personagem)" 
                                         type="text"
                                         value="{{personagem.poderDeLutaInimigo}}">

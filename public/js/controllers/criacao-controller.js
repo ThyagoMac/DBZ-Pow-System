@@ -30,6 +30,8 @@ angular.module('dbzmod').controller('CriacaoController', function($scope/*, $htt
     //semi construtor
     vm.configurarValoresPadrao = function(personagem){
         personagem.poderDeLutaInimigo = 3000;
+        personagem.poderDeLutaAtual = 0;
+        personagem.auraKi = "";
         personagem.transform = 0;
         personagem.myHp = 100;
         personagem.hp = 200;
@@ -40,6 +42,7 @@ angular.module('dbzmod').controller('CriacaoController', function($scope/*, $htt
         personagem.bonusF = 2;
         personagem.danoM = 10;
         personagem.bonusM = 1;
+        personagem.kaioken = 1;
     }
 
     vm.salvarPersonagens = function(personagens){

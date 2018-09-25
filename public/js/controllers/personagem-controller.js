@@ -4,7 +4,7 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     vm.auraKi = null;
 
-    vm.personagens = JSON.parse(localStorage.getItem("personagens"));
+    vm.personagens = [];
 
     /*
     vm.personagens = [
@@ -85,25 +85,39 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     $scope.pesquisa = '';
     
+    vm.carregarPersonagens = function(){
+        vm.personagens = JSON.parse(localStorage.getItem("personagens"));
+    }
+
+    vm.salvarPersonagens = function(personagens){
+        localStorage.setItem("personagens", JSON.stringify(personagens));
+    }
+
+    vm.pasarInteiro = function(retornoInteiro){
+        retornoInteiro = parseInt(retornoInteiro, 10);
+    }
+
     vm.powChange = function(personagem) {
         
-        personagem.myHp = (personagem.hp*100)/200;
-    
+        personagem.myHp = (personagem.hp * 100)/200;
         personagem.transform = parseInt(personagem.transform, 10);
+        personagem.poderDeLutaAtual = parseInt(personagem.poderDeLutaAtual, 10);
+        personagem.poderDeLuta = parseInt(personagem.poderDeLuta, 10);
+        personagem.kaioken = parseInt(personagem.kaioken, 10);
 
-        if (personagem.auraKi == "off"){
-            
-            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + personagem.poderDeLuta;
-            personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
-
-        } else if (personagem.auraKi == "on"){
+        if (personagem.auraKi == "on"){
 
             personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + (personagem.poderDeLuta * 1.05);            
             personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
 
         } else if (personagem.auraKi == "kaioken") {
 
-            powAtual = ((personagem.poderDeLuta * 0.05) * personagem.transform) + (personagem.poderDeLuta * 1.05);
+            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + ((personagem.poderDeLuta * 0.05)*(personagem.kaioken)) + (personagem.poderDeLuta * 1.05);
+            personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
+
+        } else {
+            
+            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + personagem.poderDeLuta;
             personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
 
         }
@@ -181,12 +195,14 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     vm.excluir = function(personagem){
         
-        var personagens = JSON.parse(localStorage.getItem("personagens"));
-        console.log(personagem.id);
-        personagens.splice(personagem.id, 1);
-        localStorage.setItem("personagens", JSON.stringify(personagens));
-        console.log(personagens);
+        vm.personagens = vm.personagens.filter(function(item){
+            return item.id != personagem.id;
+        });
+
+        vm.salvarPersonagens(vm.personagens);
     }
+
+    vm.carregarPersonagens();
     
 });
 
