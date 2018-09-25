@@ -4,6 +4,9 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     vm.auraKi = null;
 
+    vm.personagens = JSON.parse(localStorage.getItem("personagens"));
+
+    /*
     vm.personagens = [
     {
         id:1,
@@ -78,12 +81,9 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         url: 'http://images.uncyc.org/pt/thumb/b/b9/Picc-kid.jpg/250px-Picc-kid.jpg'
     }];
     //local storage curso JS >><<
+*/
 
     $scope.pesquisa = '';
-
-    vm.personagens.forEach(personagem => {
-        console.log(personagem);
-    });
     
     vm.powChange = function(personagem) {
         
@@ -109,10 +109,6 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         }
 
         var diferencaPercent = (personagem.poderDeLutaAtual*100)/personagem.poderDeLutaInimigo;
-        var ataqueCalc = 0;
-        var defesaCalc = 0;
-        var danoF =  0;
-        var danoM = 0;
 
         if (personagem.classe == "Tanque"){
 
@@ -180,13 +176,24 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         }
         
     };
+
+    
+
+    vm.excluir = function(personagem){
+        
+        var personagens = JSON.parse(localStorage.getItem("personagens"));
+        console.log(personagem.id);
+        personagens.splice(personagem.id, 1);
+        localStorage.setItem("personagens", JSON.stringify(personagens));
+        console.log(personagens);
+    }
     
 });
 
-/*  =IF(C3="Tanque"; (((E16*100)/E17)*0,1) ;
-    IF(C3="Assassino"; (((E16*100)/E17)*0,1)+2;
-    IF(C3="Especialista"; (((E16*100)/E17)*0,1);
-    IF(C3="Balanceado"; (((E16*100)/E17)*0,1);
+/*  
+    vm.personagens.forEach(personagem => {
+        console.log(personagem);
+    });
 
     per1.style.width = test+"%";
 

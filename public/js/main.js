@@ -11,7 +11,8 @@ angular.module('dbzmod', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
 
         $routeProvider.when('/personagens/new', {
             templateUrl: 'partials/criar-personagem.html',
-            controller: 'CriacaoController'
+            controller: 'CriacaoController',
+            controllerAs: 'vm'
         });
 
         $routeProvider.otherwise({ redirectTo: '/personagens'})

@@ -55,6 +55,23 @@ footer#rodape p {
     color: fff;
 }
 
+.banner-jumbotron {
+    background-image: url("http://static4.comicvine.com/uploads/original/4/47635/1754357-z_fighters_cell.png");
+    background-color: #cccccc;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.bottomright {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 35px;
+    color: orange;
+}
+
 @media (min-width: 1200px) {
     .card-box {
         margin-right: 3em;
