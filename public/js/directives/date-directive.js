@@ -7,7 +7,7 @@ angular.module('minhasDiretivas')
             require: 'ngModel',
             link: function (scope, element, attrs, ctrl) {
                 var _formatDate = function (date) {
-                    date = date.replace(/[^0-9]+/g, ""); //limpa tdo que nao for numero como (/\D/g,"")
+                    date = date.replace(/\D/g,""); //limpa tdo que nao for numero como (/[^0-9]+/g, "")
                     if (date.length > 2) {
                         date = date.substring(0, 2) + "/" + date.substring(2); //>2 = add "/"
                     }

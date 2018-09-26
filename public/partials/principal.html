@@ -1,6 +1,6 @@
 <div class="row"> <br>
     <div class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box" 
-        ng-repeat="personagem in vm.personagens | filter: pesquisa"
+        ng-repeat="personagem in vm.personagens track by personagem.id | filter: pesquisa"
         nome="{{personagem.nome}}">
         
         <div class="card-deck">
@@ -174,7 +174,8 @@
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}pdla" 
                                         type="text"
-                                        ng-model="personagem.poderDeLutaAtual">
+                                        ng-model="personagem.poderDeLutaAtual"
+                                        disabled>
 
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
@@ -184,7 +185,7 @@
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}pdli" 
                                         ng-model="personagem.poderDeLutaInimigo" 
-                                        ng-change="vm.powChange(personagem)" 
+                                        ng-change="vm.powChange(personagem)"
                                         type="text"
                                         value="{{personagem.poderDeLutaInimigo}}">
                                         
@@ -197,11 +198,20 @@
                                 <div class="col-md-4 col-sm-4 col-xs-12">
                                     <label for="{{personagem.id}}pdl">Poder De Luta:</label>
                                 </div>
-                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="col-md-4 col-sm-4 col-xs-12">
                                     <input class="form-control col-xs-10" 
                                         id="{{personagem.id}}pdl" 
+                                        ng-model="personagem.poderDeLuta" 
+                                        ng-change="vm.powChange(personagem)"
                                         type="text" 
                                         value="{{personagem.poderDeLuta}}">
+
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <input class="form-control col-xs-10 btn btn-primary" 
+                                        ng-click="vm.salvarPersonagens(vm.personagens)"
+                                        type="button" 
+                                        value="Salvar Alterações">
 
                                 </div>
                             </div>

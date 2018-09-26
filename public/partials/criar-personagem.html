@@ -62,15 +62,14 @@
                     name="nome" 
                     class="form-control" 
                     required ng-maxlength="10"
-                    required>
+                    required
+                    autofocus
+                    ui-validation>
 
-                <span ng-show="formulario.nome.$dirty && formulario.nome.$error.required" 
-                    formname="formulario" 
-                    inputid="nome" 
-                    tipovalidacao="required">
-                    Nome Obrigatório!!!
+                <span ng-show="formulario.nome.$touched && formulario.nome.$error.required" 
+                    class="form-control alert-danger">
+                    Nome Obrigatório
                 </span>
-                
                 <span ng-show="formulario.nome.$dirty && formulario.nome.$error.maxlength" 
                     class="form-control alert-danger">
                     Máximo 10 caracteres!!!
@@ -80,23 +79,17 @@
             <div class="form-group col-md-6">
                 <label for="sName">Sobre Nome</label>
                 <input ng-model="vm.personagem.sobreNome" 
-                    id="sName" 
-                    name="nome" 
+                    id="snome" 
+                    name="snome" 
                     class="form-control" 
-                    required ng-maxlength="10"
-                    required>
+                    ng-maxlength="10">
 
-                <span ng-show="formulario.nome.$touched && formulario.nome.$error.required" 
-                    formname="formulario" 
-                    id="nome" 
-                    tipovalidacao="required">
-                    Nome Obrigatório!!!
-                </span> 
-                
-                <span ng-show="formulario.nome.$touched && formulario.nome.$error.maxlength" 
+                <span ng-show="formulario.nome.$dirty && formulario.snome.$error.maxlength" 
                     class="form-control alert-danger">
-                    Máximo 20 caracteres!!!
+                    Máximo 10 Caracteres
                 </span>
+                
+                
             </div>
         </div>
 
@@ -109,9 +102,10 @@
                     class="form-control" 
                     required>
 
-                <span ng-show="formulario.$submitted && formulario.raca.$error.required" 
+                <span ng-show="formulario.raca.$touched && formulario.raca.$error.required" 
                     class="form-control alert-danger">
-                    Raca Obrigatória</span>
+                    Raca Obrigatória
+                </span>
             </div>
 
             <div class="form-group col-md-2">
@@ -119,7 +113,8 @@
                 <input ng-model="vm.personagem.idade" 
                     id="age" 
                     name="idade" 
-                    class="form-control">
+                    class="form-control"
+                    ui-num>
             </div>
 
             <div class="form-group col-md-4">
@@ -127,7 +122,13 @@
                 <input ng-model="vm.personagem.poderDeLuta" 
                     id="pow" 
                     name="poderdeluta" 
-                    class="form-control">
+                    class="form-control"
+                    ui-num>
+
+                <span ng-show="formulario.poderdeluta.$touched && formulario.poderdeluta.$error.required" 
+                    class="form-control alert-danger">
+                    Poder de Luta Inicial Obrigatório
+                </span>
             </div>
         </div>
         <div class="form-group" name="sexo">
@@ -136,7 +137,7 @@
                 <input ng-model="vm.personagem.sexo" 
                     type="radio" 
                     value="Masc" 
-                    checked>
+                    checked required>
                     Masc
             </label>
 
@@ -195,14 +196,14 @@
                 class="form-control">
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button href="/" type="submit" ng-disabled="formulario.$invalid" class="btn btn-primary">
             Salvar
         </button>
         <a href="/" class="btn btn-primary">Voltar</a>
         <hr>
     </div>
     <div class="col-md-6">
-        <img class="img-responsive center-block" src="{{personagem.url}}" alt="{{personagem.nome}}">
+        <img class="img-responsive center-block" src="{{vm.personagem.url}}" alt="{{vm.personagem.nome}}">
     </div>
 </form>
 

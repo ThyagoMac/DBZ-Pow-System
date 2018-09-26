@@ -3,14 +3,9 @@ angular.module('minhasDiretivas')
         console.log("validation-directive2");
 
         return {
-            templateUrl: "partials/ui-validation-alert.html",
-            require: '^ngModel',
-            restric: "A",
-            transclude: true,
-            scope: {
-                formname: '@',
-                inputid: '@',
-                tipovalidacao: '@'
+            require: 'ngModel',
+            link: function(scope, element, attr, mCtrl) {
+                
             }
         }
     });

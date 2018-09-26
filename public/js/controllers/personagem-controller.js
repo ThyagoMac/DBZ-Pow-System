@@ -188,10 +188,23 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
             
 
         }
+
+        vm.salvarPersonagens(vm.personagens);
         
     };
-
     
+    /*
+    vm.excluir = function(personagem){
+        var i = 0;
+        for (i=0; vm.personagens.length > i; i++){
+            
+            if(vm.personagens[i].id == personagem.id){
+                vm.personagens.splice(i, 1);
+            }
+        }
+        vm.salvarPersonagens(vm.personagens);
+    }
+    */
 
     vm.excluir = function(personagem){
         
@@ -205,31 +218,3 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
     vm.carregarPersonagens();
     
 });
-
-/*  
-    vm.personagens.forEach(personagem => {
-        console.log(personagem);
-    });
-
-    per1.style.width = test+"%";
-
-    $http.get('dbz/personagens')
-    .success(function (personagens) {
-        $scope.personagens = personagens;
-    })
-    .error(function (error) {
-        console.log(error)
-    });
-
-
-    function logArrayElements(element, index, array) {
-    console.log("a[" + index + "] = " + element);
-}
-///////////////////////////////////////////
-var loopPer = $scope.personagens.length;
-var i;
-    for(i = 0; i < loopPer; i++ ) {
-        console.log($scope.personagens[i]);
-    }
-///////////////////////////////////////////
-*/

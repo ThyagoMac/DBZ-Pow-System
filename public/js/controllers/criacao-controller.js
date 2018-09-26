@@ -3,6 +3,7 @@ angular.module('dbzmod').controller('CriacaoController', function($scope/*, $htt
     var vm = this;
     vm.personagem = {};
     
+
     //recupera personagens ou cria vazio
     vm.recuperarPersonagens = function(){
         var personagens = JSON.parse(localStorage.getItem("personagens"));
@@ -45,50 +46,54 @@ angular.module('dbzmod').controller('CriacaoController', function($scope/*, $htt
         personagem.kaioken = 1;
     }
 
-    vm.salvarPersonagens = function(personagens){
+    vm.validationPersonagem = function(personagem){
+
+        var formularioValido = true;
+
+        if (!personagem.nome){
+            alert("Insira nome");
+            formularioValido = false;
+        }
+
+        if(personagem.idade < 4){
+            alert("Idade minima necessaria");
+            formularioValido = false;
+        }
+
+        if (!personagem.poderDeLuta){
+            alert("Insira Poder de Luta Inicial");
+            formularioValido = false;
+        }
+
+        if(personagem.poderDeLuta < 1){
+            alert("Poder de Luta Inicial Não Pode Ser Menor Que 1");
+            formularioValido = false;
+        }
+
+        /*{
+            mensagem = "Nome está com algum problema";
+            validacao = false;
+        }*/
+
+        return formularioValido;
+    }
+
+    vm.salvarPersonagem = function(personagem){
+        var personagens = vm.recuperarPersonagens(); //getPersonagens
+        personagens.push(personagem) //insere personagem > personagem
+        console.log(personagens);
         localStorage.setItem("personagens", JSON.stringify(personagens));
     }
 
     vm.submeter = function() {
 
+        if(!vm.validationPersonagem(vm.personagem)){
+            return; //return interrompe o fuxo do codigo.
+        }
         vm.personagem.id = vm.gerarIdentificador(); //gera obj id e joga p/ personagem
         vm.configurarValoresPadrao(vm.personagem); //constructor valores padroes
-        var personagens = vm.recuperarPersonagens(); //getPersonagens
-        personagens.push(vm.personagem) //insere personagem > personagem
-        vm.salvarPersonagens(personagens); //salva
-
+        vm.salvarPersonagem(vm.personagem);
     }
-        
-/*
-    $scope.editar = function(){
-        personagens[indice_char] = JSON.stringify({
-                Codigo   : $("#txtCodigo").val(),
-                Nome     : $("#txtNome").val(),
-                Telefone : $("#txtTelefone").val(),
-                Email    : $("#txtEmail").val()
-            });//Altera o item selecionado na tabela
-        localStorage.setItem("personagens", JSON.stringify(personagens));
-        alert("Informações editadas.")
-        operacao = "A"; //Volta ao padrão
-        return true;
-    }
-*/
-
-/*
-    $scope.excluir = function(){
-        personagens.splice(indice_char, 1);
-        localStorage.setItem("personagens", JSON.stringify(personagens));
-        alert("Registro excluído.");
-    }
-*/
-
-        /*$http.post('dbz/personagens', $scope.personagem)
-        .success(function() {
-
-        })
-        .error(function(erro) {
-            console.log(erro);
-        })*/
     
 });
 
