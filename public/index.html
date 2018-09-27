@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/estilo.css">
+    
     <script src="js/lib/angular.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controllers/personagem-controller.js"></script>
@@ -25,12 +26,14 @@
 </head>
 
 <body>
+    <div class="jumbotron banner-jumbotron">
+        <h2 class="bottomright"><b>DBZ 0.2.5</b></h2>
+    </div>
+
     <div class="container">
-        <div class="jumbotron banner-jumbotron">
-            <h2 class="bottomright"><b>DBZ 0.2.5</b></h2>
-        </div>
         <ng-view></ng-view>
     </div>
+    
     <footer id="rodape">
         <div class="container">
             <p class="text-center">Telefone: (XX) XXXXX-XXXX

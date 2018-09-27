@@ -105,19 +105,24 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         personagem.poderDeLuta = parseInt(personagem.poderDeLuta, 10);
         personagem.kaioken = parseInt(personagem.kaioken, 10);
 
+        var tranformacaoCalc = ((personagem.poderDeLuta/2) * personagem.transform);
+        var kiCalc = (personagem.poderDeLuta * 1.1);
+        var kaiokenCalc = ((personagem.poderDeLuta * 0.05)*(personagem.kaioken));
+
+
         if (personagem.auraKi == "on"){
 
-            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + (personagem.poderDeLuta * 1.05);            
+            personagem.poderDeLutaAtual = tranformacaoCalc + kiCalc;            
             personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
 
         } else if (personagem.auraKi == "kaioken") {
 
-            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + ((personagem.poderDeLuta * 0.05)*(personagem.kaioken)) + (personagem.poderDeLuta * 1.05);
+            personagem.poderDeLutaAtual = tranformacaoCalc + kaiokenCalc + kiCalc;
             personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
 
         } else {
             
-            personagem.poderDeLutaAtual = ((personagem.poderDeLuta/2) * personagem.transform) + personagem.poderDeLuta;
+            personagem.poderDeLutaAtual = tranformacaoCalc + personagem.poderDeLuta;
             personagem.poderDeLutaAtual = Math.round(personagem.poderDeLutaAtual);
 
         }

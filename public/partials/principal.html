@@ -1,3 +1,18 @@
+<div class="row menu">
+    <div class="absolute">
+        <div class="col-md-12 ">
+            <form>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <a href="personagens/new" class="btn btn-primary">Criar Personagem</a>
+                    </span>
+                    <input ng-model="pesquisa" class="form-control" placeholder="Pesquisar" >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--ng-repeat="personagem in vm.personagens track by personagem.id | filter: pesquisa"-->
 <div class="row"> <br>
     <div class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box" 
         ng-repeat="personagem in vm.personagens track by personagem.id | filter: pesquisa"
@@ -5,6 +20,12 @@
         
         <div class="card-deck">
             <div class="card">
+                    <button type="button" 
+                    class="close" 
+                    aria-label="Close"
+                    ng-click="vm.excluir(personagem)">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <div class="image-box">
                     <img class="card-img-top img-responsive center-block img-fluid image-in-box" 
                         src="{{personagem.url}}" 
@@ -12,18 +33,10 @@
 
                 </div>
                 <div class="card-body row">
-                    <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}
-                            <button type="button" 
-                                class="close" 
-                                aria-label="Close"
-                                ng-click="vm.excluir(personagem)">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </h5>
-                        
+                    <h5 class="card-title">{{personagem.sobreNome}} {{personagem.nome}}</h5>
                     <ul class="list-group list-group-flush">
 
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="progress">
                                 <div ui-Hp class="progress-bar progress-bar-success" 
                                     id="{{personagem.id}}hpbar" 
@@ -42,11 +55,11 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}hp">HP:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}hp" 
                                         type="text" 
                                         value="{{personagem.hp}}" 
@@ -54,11 +67,11 @@
                                         ng-change="vm.powChange(personagem)">
 
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}ki">KI:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}ki" 
                                         type="text" 
                                         value="{{personagem.ki}}" 
@@ -68,24 +81,24 @@
                             </div>
                         </li>
 
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}atauqe">Ataque:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}atauqe" 
                                         type="text" 
                                         disabled
                                         value="{{personagem.ataque}}">
 
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}defesa">Defesa:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}defesa" 
                                         type="text" 
                                         disabled
@@ -94,24 +107,24 @@
                             </div>
                         </li>
 
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="row">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.id}}danof">Dano Fisico:</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <label for="{{personagem.id}}danof" >Dano Fisico:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}danof" 
                                         type="text" 
                                         disabled
                                         value="{{personagem.danoF}}d6+{{personagem.bonusF}}">
 
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                    <label for="{{personagem.id}}danom">Dano Magico:</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <label for="{{personagem.id}}danom" >Dano Magic:</label>
                                 </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}danom" 
                                         type="text" 
                                         disabled
@@ -121,7 +134,7 @@
                         </li>
 
                         <br>
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="row">
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <label for="{{personagem.id}}aura">Aura de Ki:</label>
@@ -139,7 +152,7 @@
                                     </select>
                                     <div ng-if="personagem.auraKi == 'kaioken'">
                                         <input ng-model="personagem.kaioken" 
-                                            class="form-control" 
+                                            class="form-control text-center" 
                                             type="number" 
                                             value="1"
                                             ng-change="vm.powChange(personagem)">
@@ -154,7 +167,7 @@
                                     <input ng-model="personagem.transform" 
                                         type="number"
                                         ng-change="vm.powChange(personagem)" 
-                                        class="form-control form-control-sm" 
+                                        class="form-control form-control-sm text-center" 
                                         id="{{personagem.id}}trans">
 
                                         
@@ -165,13 +178,13 @@
                         </li>
 
                         <br>
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="row">
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.id}}pdla">Poder de Luta Atual:</label>
+                                    <label for="{{personagem.id}}pdla" class="label-grange">Poder de Luta Atual:</label>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}pdla" 
                                         type="text"
                                         ng-model="personagem.poderDeLutaAtual"
@@ -179,10 +192,10 @@
 
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <label for="{{personagem.id}}pdli">Poder de Luta Inimigo:</label>
+                                    <label for="{{personagem.id}}pdli" class="label-grange">Poder de Luta Inimigo:</label>
                                 </div>
                                 <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}pdli" 
                                         ng-model="personagem.poderDeLutaInimigo" 
                                         ng-change="vm.powChange(personagem)"
@@ -193,13 +206,13 @@
                             </div>
                         </li>
 
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <label for="{{personagem.id}}pdl">Poder De Luta:</label>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <label for="{{personagem.id}}pdl" class="label-grange">Poder De Luta:</label>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input class="form-control col-xs-10" 
+                                    <input class="form-control col-xs-10 text-center" 
                                         id="{{personagem.id}}pdl" 
                                         ng-model="personagem.poderDeLuta" 
                                         ng-change="vm.powChange(personagem)"
@@ -222,16 +235,5 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-12">
-        <form>
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <a href="personagens/new" class="btn btn-primary">Criar Personagem</a>
-                </span>
-                <input ng-model="pesquisa" class="form-control" placeholder="Pesquisar" >
-            </div>
-        </form>
-    </div>
-</div>
-<!--//ng-controller="PersonagensController"
+
+<!--//ng-controller="PersonagensController"-->
