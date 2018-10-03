@@ -6,7 +6,7 @@
                     <span class="input-group-btn">
                         <a href="personagens/new" class="btn btn-primary">Criar Personagem</a>
                     </span>
-                    <input ng-model="pesquisa" class="form-control" placeholder="Pesquisar" >
+                    <input ng-model="vm.pesquisa" class="form-control" placeholder="Pesquisar" >
                 </div>
             </form>
         </div>
@@ -15,8 +15,7 @@
 <!--ng-repeat="personagem in vm.personagens track by personagem.id | filter: pesquisa"-->
 <div class="row"> <br>
     <div class="col-md-5 col-sm-5 col-xs-12 anicamao-fade card-box" 
-        ng-repeat="personagem in vm.personagens track by personagem.id | filter: pesquisa"
-        nome="{{personagem.nome}}">
+        ng-repeat="personagem in vm.personagens | filter: vm.pesquisa">
         
         <div class="card-deck">
             <div class="card">

@@ -83,10 +83,15 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
     //local storage curso JS >><<
 */
 
-    $scope.pesquisa = '';
+    vm.pesquisa = '';
     
     vm.carregarPersonagens = function(){
         vm.personagens = JSON.parse(localStorage.getItem("personagens"));
+        //Todo cancelar a $$hashKey gerada pelo angular.
+        vm.personagens[0]['$$hashKey'] = "fsagg";
+        vm.personagens[1]['$$hashKey'] = "fsas";
+        vm.personagens[2]['$$hashKey'] = "fsgfdsg";
+        console.log(vm.personagens);
     }
 
     vm.salvarPersonagens = function(personagens){

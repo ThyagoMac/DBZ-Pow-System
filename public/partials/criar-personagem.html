@@ -1,3 +1,37 @@
+
+<textarea name="" id="" cols="30" rows="10" ng-model="vm.texto" ng-paste="vm.executarFormatacao()" autofocus></textarea>
+<br/>
+<br/>
+<table class="table">
+        <thead>
+            <tr>
+                <th>Protocolo</th>
+                <th>Tipo</th>
+                <th>Sub-Tipo</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Código</th>
+                <th>Número</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr ng-repeat="item in vm.objetos">
+
+            <td>{{item.protocolo}}</td>
+            <td>{{item.tipo}}</td>
+            <td>{{item.subTipo}}</td>
+            <td>{{item.categoria}}</td>
+            <td>{{item.status}}</td>
+            <td>{{ item.data | date : "dd/MM/y HH:mm:ss" }}</td>
+            <td>{{item.codigo}}</td>
+            <td>{{item.numero}}</td>
+
+        </tr>
+    </tbody>
+
+</table>
+
 <div class="page-header text-center">
     <h1>{{vm.personagem.nome}}</h1>
 </div>
@@ -58,12 +92,12 @@
             <div class="form-group col-md-6">
                 <label for="name">Nome</label>
                 <input ng-model="vm.personagem.nome" 
-                    id="name" 
+                    id="name"  ng-change="vm.executarFormatacao()"
                     name="nome" 
                     class="form-control" 
                     required ng-maxlength="10"
                     required
-                    autofocus
+                    
                     ui-validation>
 
                 <span ng-show="formulario.nome.$touched && formulario.nome.$error.required" 
