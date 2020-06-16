@@ -4,9 +4,9 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     vm.auraKi = null;
 
-    vm.personagens = [];
+    //vm.personagens = [];
 
-    /*
+    
     vm.personagens = [
     {
         id:1,
@@ -81,16 +81,16 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         url: 'http://images.uncyc.org/pt/thumb/b/b9/Picc-kid.jpg/250px-Picc-kid.jpg'
     }];
     //local storage curso JS >><<
-*/
+
 
     vm.pesquisa = '';
     
     vm.carregarPersonagens = function(){
         vm.personagens = JSON.parse(localStorage.getItem("personagens"));
         //Todo cancelar a $$hashKey gerada pelo angular.
-        vm.personagens[0]['$$hashKey'] = "fsagg";
-        vm.personagens[1]['$$hashKey'] = "fsas";
-        vm.personagens[2]['$$hashKey'] = "fsgfdsg";
+        //vm.personagens[0]['$$hashKey'] = "fsagg";
+        //vm.personagens[1]['$$hashKey'] = "fsas";
+        //vm.personagens[2]['$$hashKey'] = "fsgfdsg";
         console.log(vm.personagens);
     }
 
@@ -225,6 +225,7 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         vm.salvarPersonagens(vm.personagens);
     }
 
+    vm.salvarPersonagens(vm.personagens);
     vm.carregarPersonagens();
     
 });
