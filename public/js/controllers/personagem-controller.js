@@ -6,80 +6,81 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
 
     //vm.personagens = [];
 
-    
-    vm.personagens = [
-    {
-        id:1,
-        nome: "Ada",
-        sobreNome: "Majin",
-        classe: "Especialista",
-        raca: "Majin",
-        sexo: "Fem",
-        auraKi: "off",
-        idade: 18,
-        poderDeLuta: 8023,
-        poderDeLutaAtual: 8023,
-        poderDeLutaInimigo: 8100,
-        transform:0,
-        myHp: 100,
-        hp: 200,
-        ki: 100,
-        ataque: 50,
-        defesa: 50,
-        danoF: 10,
-        bonusF: 2,
-        danoM: 10,
-        bonusM: 1,  
-        url: 'https://i.imgur.com/MStrWbZ.png'
-    },
-    {
-        id:2,
-        nome: "Firzen",
-        sobreNome: "",
-        classe: "Tanque",
-        raca: "Changeling",
-        sexo: "Masc",
-        auraKi: "off",
-        idade: 13,
-        poderDeLuta: 8746,
-        poderDeLutaAtual: 8746,
-        poderDeLutaInimigo: 8800,
-        transform:0,
-        myHp: 100,
-        hp: 200,
-        ki: 100,
-        ataque: 50,
-        defesa: 50,
-        danoF: 10,
-        bonusF: 2,
-        danoM: 10,
-        bonusM: 1,  
-        url: 'https://pm1.narvii.com/6450/aa95c48ae99a3d2382bb28f26d13eb3918a42548_hq.jpg'
-    },
-    {
-        id:3,
-        nome: "Pickles",
-        sobreNome: "Sr",
-        classe: "Assassino",
-        raca: "Namek",
-        sexo: "Masc",
-        auraKi: "off",
-        idade: 108,
-        poderDeLuta: 1000,
-        poderDeLutaAtual: 1000,
-        poderDeLutaInimigo: 1000,
-        transform:0,
-        myHp: 100,
-        hp: 200,
-        ki: 100,
-        ataque: 50,
-        defesa: 50,
-        danoF: 10,
-        bonusF: 2,
-        danoM: 10,
-        bonusM: 1,  
-        url: 'http://images.uncyc.org/pt/thumb/b/b9/Picc-kid.jpg/250px-Picc-kid.jpg'
-    }];
+    //if(vm.personagem){
+        vm.personagens = [
+        {
+            id:1,
+            nome: "Ada",
+            sobreNome: "Majin",
+            classe: "Especialista",
+            raca: "Majin",
+            sexo: "Fem",
+            auraKi: "off",
+            idade: 18,
+            poderDeLuta: 8023,
+            poderDeLutaAtual: 8023,
+            poderDeLutaInimigo: 8100,
+            transform:0,
+            myHp: 100,
+            hp: 200,
+            ki: 100,
+            ataque: 50,
+            defesa: 50,
+            danoF: 10,
+            bonusF: 2,
+            danoM: 10,
+            bonusM: 1,  
+            url: 'https://i.imgur.com/MStrWbZ.png'
+        },
+        {
+            id:2,
+            nome: "Firzen",
+            sobreNome: "",
+            classe: "Tanque",
+            raca: "Changeling",
+            sexo: "Masc",
+            auraKi: "off",
+            idade: 13,
+            poderDeLuta: 8746,
+            poderDeLutaAtual: 8746,
+            poderDeLutaInimigo: 8800,
+            transform:0,
+            myHp: 100,
+            hp: 200,
+            ki: 100,
+            ataque: 50,
+            defesa: 50,
+            danoF: 10,
+            bonusF: 2,
+            danoM: 10,
+            bonusM: 1,  
+            url: 'https://pm1.narvii.com/6450/aa95c48ae99a3d2382bb28f26d13eb3918a42548_hq.jpg'
+        },
+        {
+            id:3,
+            nome: "Pickles",
+            sobreNome: "Sr",
+            classe: "Assassino",
+            raca: "Namek",
+            sexo: "Masc",
+            auraKi: "off",
+            idade: 108,
+            poderDeLuta: 1000,
+            poderDeLutaAtual: 1000,
+            poderDeLutaInimigo: 1000,
+            transform:0,
+            myHp: 100,
+            hp: 200,
+            ki: 100,
+            ataque: 50,
+            defesa: 50,
+            danoF: 10,
+            bonusF: 2,
+            danoM: 10,
+            bonusM: 1,  
+            url: 'http://images.uncyc.org/pt/thumb/b/b9/Picc-kid.jpg/250px-Picc-kid.jpg'
+        }];
+    //}
     //local storage curso JS >><<
 
 
@@ -216,7 +217,7 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
     }
     */
 
-    vm.excluir = function(personagem){
+    vm.excluir = function(personagem){  
         
         vm.personagens = vm.personagens.filter(function(item){
             return item.id != personagem.id;
@@ -225,7 +226,7 @@ angular.module('dbzmod').controller('PersonagensController', function ($scope/*,
         vm.salvarPersonagens(vm.personagens);
     }
 
-    vm.salvarPersonagens(vm.personagens);
+    //vm.salvarPersonagens(vm.personagens);
     vm.carregarPersonagens();
     
 });
